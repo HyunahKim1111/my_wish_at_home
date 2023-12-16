@@ -1,11 +1,17 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Post
+from .models import Post, Category
 
 #포스트 메인페이지
 class PostList(ListView):
     model = Post
     ordering = '-pk'
+
+    def get_context_data(self, **kwargs):
+        context = super(PostList, self).get_context_data()
+        context['categoies'] = Category.objects.all()
+        context['no_category_post_count'] = Post.objects.filter(category=None).count()
+        return context
 
 #포스트 상세페이지
 class PostDetail(DetailView):
