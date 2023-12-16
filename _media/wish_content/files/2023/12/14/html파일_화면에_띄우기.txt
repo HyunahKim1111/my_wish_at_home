@@ -1,0 +1,16 @@
+html파일 화면에 띄우기
+
+1. view.py 에 함수 정의
+def 함수명(request):
+    return render(request, '페이지이름.html')
+
+2. urls.py에서 경로 확보
+  from .views import  함수명
+    path('경로명/', view에서 정의한 함수)
+
+3. template파일 만들기
+바탕 찍고 templates 파일 만들기
+
+4. settings.py에 가서 tempates 넣어줘 요청
+TEMPLATES 에서
+os.path.join(BASE_DIR, 'templates')

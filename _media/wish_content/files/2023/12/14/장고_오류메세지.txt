@@ -1,0 +1,24 @@
+장고 오류메세지
+
+1-1)
+improperlyConfigured at 
+Using ModelFormMixin (base class of BookmarkCreateView) without the 'fields' attribute is prohibited.
+
+CreateView랑 ListView에 모델을 지정해줌. 그럼 이 모델에 관해서 입력받거나 수정할 거라는 뜻.
+근데 어떤 필드들을 수정할 건지 목록이 필요하다. 지정을 해줘야 함. 그게 바로 'fields'라는 항목이야.
+
+1-2)
+improperlyConfigured at 
+No URL to redirect to . Either provide a url or define a get_absolute_url method no the Model.
+글쓰기를 완료하면 글쓰기 후 이동할 주소가 필요해.
+2가지 방법이 있음
+1) veiw에서 url 설정 success_url 이용
+
+success_url = reverse_lazy('list') 
+2) get_absolute_url 사용
+
+2.
+TemplateDoesNotExist at 
+bookmark/bookmark_form.html -> 기본적으로 update뷰랑 create뷰는 뭔가 입력받아서 수정해야하니까 _form이 붙어있음. 근데 뒷부분을 create로 바꿀거야 suffix옵션으로
+
+

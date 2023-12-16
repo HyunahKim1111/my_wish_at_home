@@ -1,0 +1,13 @@
+from django.urls import path
+#.은 현재 폴더에 있는 views.py를 사용할 수 있게 가져오라는 뜻
+from . import views
+
+
+urlpatterns = [
+    path('my_wish/', views.my_wish),
+    path('content/', views.content),
+    path('<int:pk>/', views.PostDetail.as_view()), #포스트상세페이지 CBV방식
+    path('', views.PostList.as_view()), #포스트 메인페이지 CBV방식
+    # path('', views.index), -- FBV방식
+    # path('<int:pk>/', views.single_post_page), #FBV방식
+]
