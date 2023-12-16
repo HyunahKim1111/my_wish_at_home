@@ -119,6 +119,16 @@ USE_TZ = False
 
 STATIC_URL = 'static/'
 
+# # 정적 파일이 위치한 경로
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
+
+# 정적 파일이 위치한 경로
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'wish_content', 'static'),  # 수정된 경로
+]
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
 

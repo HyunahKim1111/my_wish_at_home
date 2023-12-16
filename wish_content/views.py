@@ -19,6 +19,9 @@ def content(request):
 def my_wish(request):
     return render(request, 'wish_content/my_wish.html')
 
+def index(request):
+    return render(request, 'wish_content/index.html')
+
 # #포스트 메인페이지
 # def index(request):
 #     posts = Post.objects.all().order_by('-pk') # Post.objects.all() 이 방식으로 views.py에서 데이터베이스에 퀴리를 날려 원하는 레코드를 가져올 수 있어
