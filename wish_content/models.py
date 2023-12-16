@@ -15,7 +15,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     time = models.DateField(auto_now=True)
 
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
     # 관리자페이지에서 글을 문자로 뿌려주는 역할
     def __str__(self):
