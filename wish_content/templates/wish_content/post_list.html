@@ -3,7 +3,9 @@
 <span class="badge text-bg-light">Light</span>
 
 {% block main_area%}
-<h1>Blog{% if category %}<span class="badge badge-secondary">{{ category }}</span>{% endif %}</h1>
+<h1>Blog{% if category %}<span class="badge badge-secondary">{{ category }}</span>{% endif %}
+  {% if tag %}<span class="badge badge-light"><i class="bi bi-tag-fill"></i>{{ tag }} ({{ tag.post_set.count }})</span>{% endif %}
+</h1>
 {% if post_list.exists %}
   {% for p in post_list %}
   <!-- blog post-->
@@ -27,6 +29,19 @@
             <h5 class="text-muted">{{ p.hook_text }}</h5>
           {% endif %}
           <p class="card-text">{{ p.content | truncatewords:45 }}</p>
+
+          <!-- Tag -->
+          {% if p.tags.exists %}
+            <i class="bi bi-tag"></i>
+            {% for tag in p.tags.all %}
+              <a href="{{ tag.get_absolute_url }}">
+                <span class="badge badge-pill badge-light">{{ tag }}</span>
+              </a>
+            {% endfor %}
+            <br/>
+            <br/>
+          {% endif %}
+          <!-- Tag end -->
           <a class="btn btn-primary" href="{{ p.get_absolute_url }}">Read more →</a>
       </div>
       <div class="card-footer text-muted">
