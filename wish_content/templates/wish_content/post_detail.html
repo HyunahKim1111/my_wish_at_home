@@ -7,6 +7,11 @@
 
 {% block main_area %}
     <div id="post-area">
+        {% if post.category %}
+            <span class="badge badge-secondary float-right">{{ post.category }}</span>
+        {% else %}
+            <span class="badge badge-secondary float-right">미분류</span>
+        {% endif %}
         <!-- Post content-->
         <article>
             <!-- Post header-->
@@ -22,7 +27,7 @@
             </header>
             <!-- Preview image figure-->
             {% if p.head_image %}
-            <img class="card-img-top" src="{{ post.head_image.url }}" alt="{{ p }} head image"/>
+            <img class="card-img-top" src="{{ post.head_image.url }}" alt="{{ post.title }} head image"/>
             {% else %}
             <img class="card-img-top" src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random_image">
             {% endif %}
