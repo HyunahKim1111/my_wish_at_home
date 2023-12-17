@@ -9,6 +9,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
+    def get_absolute_url(self):
+        return f'/blog/category/{self.slug}/'
     class Meta:
         verbose_name_plural = 'Categories'
 
@@ -31,6 +33,7 @@ class Post(models.Model):
     # 관리자페이지에서 글을 문자로 뿌려주는 역할
     def __str__(self):
         return f'[{self.pk}]{self.title}{self.time} :: {self.author}'
+    
     #메인페이지에서 제목을 클릭하면 상세페이지로 넘어가는 url
     def get_absolute_url(self):
         return f'/{self.pk}/'

@@ -4,6 +4,7 @@ from . import views
 
 
 urlpatterns = [
+    path('blog/category/<str:slug>/', views.category_page),
     path('my_wish/', views.my_wish),
     path('content/', views.content),
     path('blog/<int:pk>/', views.PostDetail.as_view()), #포스트상세페이지 CBV방식
