@@ -4,6 +4,7 @@ from . import views
 
 
 urlpatterns = [
+    path('blog/create_post/', views.PostCreate.as_view()),
     path('blog/tag/<str:slug>/', views.tag_page),
     path('blog/category/<str:slug>/', views.category_page),
     path('my_wish/', views.my_wish),

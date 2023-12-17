@@ -47,7 +47,7 @@ class Post(models.Model):
     
     #메인페이지에서 제목을 클릭하면 상세페이지로 넘어가는 url
     def get_absolute_url(self):
-        return f'/{self.pk}/'
+        return f'/blog/{self.pk}/'
     
     def get_file_name(self):
         return os.path.basename(self.file_upload.name)
