@@ -19,11 +19,13 @@ from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
+from wish_content.admin import blog_admin_site  # BlogAdminSite import
 #chatGPT가 알려준거
 # from django.contrib.auth.decorators import login_required
 # from django.views.generic import TemplateView
 
 urlpatterns = [
+    path('admin/blog/', blog_admin_site.urls),
     path('accounts/', include('allauth.urls')),
     # 사용자 프로필 URL 추가chatGPT가 알려준거
     # path('accounts/profile/', login_required(TemplateView.as_view(template_name='profile.html')), name='user_profile'),///
