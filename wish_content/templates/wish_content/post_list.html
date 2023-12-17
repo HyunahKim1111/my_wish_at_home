@@ -3,6 +3,11 @@
 <span class="badge text-bg-light">Light</span>
 
 {% block main_area%}
+
+<!-- 교재p.394나는 모든사람이쓸 수 있도록 해서 책과 다름 -->
+<a class="btn btn-info btn-sm float-right" href="/blog/create_post/" role="button">
+  <i class="fas fa-pen"></i>&nbsp;&nbsp;New Post</a>
+
 <h1>Blog{% if category %}<span class="badge badge-secondary">{{ category }}</span>{% endif %}
   {% if tag %}<span class="badge badge-light"><i class="bi bi-tag-fill"></i>{{ tag }} ({{ tag.post_set.count }})</span>{% endif %}
 </h1>

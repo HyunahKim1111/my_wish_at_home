@@ -25,9 +25,13 @@ class PostDetail(DetailView):
         return context
     
 # 폼태그(Create기능 만들기)
+    # UserPassesTestMinin부분은 교재와 다름 확인 필요ㅔ.393
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'hook_text', 'content', 'head_image', 'file_upload', 'category']
+
+    # def test_func(self):
+    #     return self.request.user.is_superuser or self.request.is_staff
 
     def form_valid(self, form):
         current_user = self.request.user
