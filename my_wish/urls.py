@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     # path('wish_content/', include('wish_content.urls')),
+    path('markdownx/', include('markdownx.urls')),
     path('admin/', admin.site.urls),
     path('', include('wish_content.urls') )
 ]

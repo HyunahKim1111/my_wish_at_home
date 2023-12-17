@@ -1,9 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 #.은 현재 폴더에 있는 views.py를 사용할 수 있게 가져오라는 뜻
 from . import views
 
 
 urlpatterns = [
+    # path('markdownx/', include('markdownx.urls')),
     path('blog/update_post/<int:pk>/', views.PostUpdate.as_view()),
     path('blog/create_post/', views.PostCreate.as_view()),
     path('blog/tag/<str:slug>/', views.tag_page),
